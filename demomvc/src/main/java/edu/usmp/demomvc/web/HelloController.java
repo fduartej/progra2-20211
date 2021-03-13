@@ -14,7 +14,7 @@ public class HelloController{
     }
 
     @RequestMapping("/employees")
-    public List<Employee> index(){
+    public List<Employee> employees(){
         List<Employee> employees = new ArrayList<Employee>();
         employees.add(new Employee("Orestes","La Cunsa"));
         return employees;
