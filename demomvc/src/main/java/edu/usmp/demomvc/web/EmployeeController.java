@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import java.util.*;
 import edu.usmp.demomvc.domain.*;
 import edu.usmp.demomvc.repository.*;
@@ -26,7 +27,7 @@ public class EmployeeController{
     }
 
     @PostMapping(value = "/employee", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Employee> create(Employee e){
+    public ResponseEntity<Employee> create(@ModelAttribute Employee e){
         employeeRepository.save(e);
         employeeRepository.flush();
         return new ResponseEntity<Employee>(e, HttpStatus.OK);
