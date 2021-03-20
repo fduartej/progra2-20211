@@ -28,6 +28,7 @@ public class EmployeeController{
     @PostMapping(value = "/employee", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Employee> create(Employee e){
         employeeRepository.save(e);
+        employeeRepository.flush();
         return new ResponseEntity<Employee>(e, HttpStatus.OK);
     }
 
