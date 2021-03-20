@@ -1,6 +1,17 @@
 package edu.usmp.demomvc.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+@Table(name = "t_employee")
 public class Employee{
+
+    @GeneratedValue
+	@Id
+	private Integer id;
 
     private String firstName;
     private String lastName;
