@@ -36,7 +36,8 @@ public class EmployeeController{
 
     @GetMapping(value = "/employee/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Employee> employees(@PathVariable int id){
+        Optional<Employee> optinalEntity = employeeRepository.findById(id);
         return new ResponseEntity<Employee>(
-            employeeRepository.findById(id), HttpStatus.OK);
+            optinalEntity.get(), HttpStatus.OK);
     }
 }

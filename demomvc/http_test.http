@@ -1,7 +1,7 @@
 GET http://localhost:8080/employees HTTP/1.1
 Accept: application/json
 
-GET http://localhost:8080/employee/1 HTTP/1.1
+GET http://localhost:8080/employee/2 HTTP/1.1
 Accept: application/json
 
 POST http://localhost:8080/employee HTTP/1.1
