@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import java.util.*;
 import edu.usmp.demomvc.domain.*;
 import edu.usmp.demomvc.repository.*;
@@ -33,4 +34,9 @@ public class EmployeeController{
         return new ResponseEntity<Employee>(e, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/employee/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Employee> employees(@PathVariable int id){
+        return new ResponseEntity<Employee>(
+            employeeRepository.findById(id), HttpStatus.OK);
+    }
 }
