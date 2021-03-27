@@ -30,10 +30,10 @@ public class EmployeeController{
     }
 
     @PostMapping(value = "/employee", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Employee> create(@RequestBody Employee e){
+    public ResponseEntity<Integer> create(@RequestBody Employee e){
         employeeRepository.save(e);
         employeeRepository.flush();
-        return new ResponseEntity<Employee>(HttpStatus.CREATED);
+        return new ResponseEntity<Integer>(e.getId(),HttpStatus.CREATED);
     }
 
     @GetMapping(value = "/employee/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
