@@ -32,7 +32,7 @@ jobs:
       run: docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
 
     - name: Docker Build
-      run: docker build -f "demomvc/Dockerfile" .
+      run: docker build -f "demomvc/DockerFile" .
 
     - name: Publish
       run: |
