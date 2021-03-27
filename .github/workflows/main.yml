@@ -10,6 +10,7 @@ on:
 env:
   HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
   HEROKU_APP_NAME: ${{ 'app-spring-progrados' }}
+  HEROKU_PSS_DB: ${{ secrets.HEROKU_PSS_DB }}
 
 jobs:
   build_webapp:
@@ -25,7 +26,7 @@ jobs:
         java-version: 1.8
     
     - name: Build with Maven
-      run: mvn -B package --file demomvc/pom.xml
+      run: mvn -B package --file demomvc/pom.xml -Dpassword_db_heroku=$HEROKU_PSS_DB
 
     - name: Docker build
       run: docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
