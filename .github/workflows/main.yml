@@ -46,9 +46,9 @@ jobs:
 
           email: fduartej@gmail.com
 
-          heroku_api_key: $HEROKU_API_KEY
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           
-          heroku_app_name: $HEROKU_APP_NAME
+          heroku_app_name: app-spring-progrados
 
           dockerfile_directory: ./demomvc
 
