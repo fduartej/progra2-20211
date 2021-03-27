@@ -1,8 +1,10 @@
 package edu.usmp.demomvc.web;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -37,7 +39,22 @@ public class EmployeeController{
     @GetMapping(value = "/employee/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Employee> employees(@PathVariable int id){
         Optional<Employee> optinalEntity = employeeRepository.findById(id);
-        return new ResponseEntity<Employee>(
-            optinalEntity.get(), HttpStatus.OK);
+        if(optinalEntity.isPresent())
+            return new ResponseEntity<Employee>(
+                optinalEntity.get(), HttpStatus.OK);
+        else
+            return new ResponseEntity<Employee>(HttpStatus.NOT_FOUND);
+    }
+
+    @DeleteMapping(value = "/employee/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity delete(@PathVariable int id){
+        employeeRepository.deleteById(id);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/employee", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Employee> update(@RequestBody Employee e){
+        create(e);
+        return new ResponseEntity<Employee>(HttpStatus.OK);
     }
 }
