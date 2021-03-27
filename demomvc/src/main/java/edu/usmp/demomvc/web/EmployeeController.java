@@ -33,7 +33,7 @@ public class EmployeeController{
     public ResponseEntity<Employee> create(@RequestBody Employee e){
         employeeRepository.save(e);
         employeeRepository.flush();
-        return new ResponseEntity<Employee>(e, HttpStatus.OK);
+        return new ResponseEntity<Employee>(HttpStatus.CREATED);
     }
 
     @GetMapping(value = "/employee/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

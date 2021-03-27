@@ -17,6 +17,15 @@ public class Employee{
     private String firstName;
     private String lastName;
 
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
     public String getFirstName() {
         return this.firstName;
     }
