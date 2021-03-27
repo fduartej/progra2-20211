@@ -28,13 +28,28 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file demomvc/pom.xml -Dpassword_db_heroku=$HEROKU_PSS_DB
 
-    - name: Docker Build
-      run: docker build -f "demomvc/DockerFile" .
+    #- name: Docker Build
+    #  run: docker build -f "demomvc/DockerFile" .
 
-    - name: Docker login
-      run: docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
+    #- name: Docker login
+    #  run: docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
 
-    - name: Publish
-      run: |
-        heroku container:push web -a $HEROKU_APP_NAME
-        heroku container:release web -a $HEROKU_APP_NAME
+    #- name: Publish
+    #  run: |
+    #    heroku container:push web -a $HEROKU_APP_NAME
+    #    heroku container:release web -a $HEROKU_APP_NAME
+
+
+    - name: Build, Push and Release a Docker container to Heroku.
+      uses: gonuit/heroku-docker-deploy@v1.3.2 
+      with:
+
+          heroku_api_key: $HEROKU_API_KEY
+          
+          heroku_app_name: $HEROKU_APP_NAME
+
+          dockerfile_directory: ./demomvc
+
+          dockerfile_name: DockerFile
+
+          docker_options: "--no-cache"
