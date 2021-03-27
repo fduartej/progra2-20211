@@ -44,6 +44,8 @@ jobs:
       uses: gonuit/heroku-docker-deploy@v1.3.2 
       with:
 
+          email: fduartej@gmail.com
+
           heroku_api_key: $HEROKU_API_KEY
           
           heroku_app_name: $HEROKU_APP_NAME
