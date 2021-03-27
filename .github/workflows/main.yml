@@ -28,11 +28,11 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file demomvc/pom.xml -Dpassword_db_heroku=$HEROKU_PSS_DB
 
-    - name: Docker login
-      run: docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
-
     - name: Docker Build
       run: docker build -f "demomvc/DockerFile" .
+
+    - name: Docker login
+      run: docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
 
     - name: Publish
       run: |
