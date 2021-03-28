@@ -16,7 +16,7 @@
 						"type": "text"
 					}
 				],
-				"url": "http://localhost:8080/employees"
+				"url": "https://app-spring-progrados.herokuapp.com/employees"
 			},
 			"response": []
 		},
@@ -31,7 +31,7 @@
 						"value": "application/json"
 					}
 				],
-				"url": "http://localhost:8080/employee/1"
+				"url": "https://app-spring-progrados.herokuapp.com/employee/1"
 			},
 			"response": []
 		},
@@ -55,7 +55,16 @@
 					"mode": "raw",
 					"raw": "{\r\n    \"firstName\" : \"Juan1\",\r\n    \"lastName\" : \"Perez1\"\r\n}"
 				},
-				"url": "http://localhost:8080/employee"
+				"url": "https://app-spring-progrados.herokuapp.com/employee"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://app-spring-progrados.herokuapp.com/actuator/health"
 			},
 			"response": []
 		}
