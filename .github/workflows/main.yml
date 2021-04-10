@@ -20,10 +20,13 @@ jobs:
       with:
         java-version: 1.8
     
-    - name: Build with Maven
+    - name: Build with Maven Backend
       run: mvn -B package --file demoapi/pom.xml -DHEROKU_PSS_DB=${{ secrets.HEROKU_PSS_DB }} -DPORT=${{ secrets.PORT }}
 
-    - name: Build, Push and Release a Docker container to Heroku.
+    - name: Build with Maven Frontend
+      run: mvn -B package --file demomvc/pom.xml -DHEROKU_PSS_DB=${{ secrets.HEROKU_PSS_DB }} -DPORT=${{ secrets.PORT }}
+
+    - name: Build, Push and Release a Docker container to Heroku Backend
       uses: gonuit/heroku-docker-deploy@v1.3.2 
       with:
 
@@ -34,6 +37,24 @@ jobs:
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
 
           dockerfile_directory: ./demoapi
+
+          dockerfile_name: DockerFile
+
+          docker_options: "--no-cache"
+
+          process_type: web
+
+    - name: Build, Push and Release a Docker container to Heroku Frontend
+      uses: gonuit/heroku-docker-deploy@v1.3.2 
+      with:
+
+          email: ${{ secrets.HEROKU_EMAIL }}
+
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME_FRONT }}
+
+          dockerfile_directory: ./demomvc
 
           dockerfile_name: DockerFile
 
