@@ -1,4 +1,4 @@
-package edu.usmp.demomvc.web;
+package edu.usmp.demomvc.web.rest;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
