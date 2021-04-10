@@ -7,6 +7,19 @@
 	"item": [
 		{
 			"name": "List Employees",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -22,6 +35,19 @@
 		},
 		{
 			"name": "Get One Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -37,6 +63,19 @@
 		},
 		{
 			"name": "Create Employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -53,7 +92,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstName\" : \"Juan1\",\r\n    \"lastName\" : \"Perez1\"\r\n}"
+					"raw": "{\r\n    \"firstName\" : \"Juan3\",\r\n    \"lastName\" : \"Perez4\"\r\n}"
 				},
 				"url": "https://app-spring-progrados.herokuapp.com/employee"
 			},
@@ -61,6 +100,19 @@
 		},
 		{
 			"name": "Get Status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],

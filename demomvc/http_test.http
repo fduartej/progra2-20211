@@ -3,7 +3,7 @@
 GET {{host}}/employees HTTP/1.1
 Accept: application/json
 
-GET {{host}}/employee/2 HTTP/1.1
+GET {{host}}/employee/3 HTTP/1.1
 Accept: application/json
 
 POST {{host}}/employee HTTP/1.1
