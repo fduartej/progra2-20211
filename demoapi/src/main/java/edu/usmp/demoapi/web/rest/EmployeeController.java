@@ -1,4 +1,4 @@
-package edu.usmp.demomvc.web.rest;
+package edu.usmp.demoapi.web.rest;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,8 +11,8 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import java.util.*;
-import edu.usmp.demomvc.domain.*;
-import edu.usmp.demomvc.repository.*;
+import edu.usmp.demoapi.domain.*;
+import edu.usmp.demoapi.repository.*;
 
 @RestController
 public class EmployeeController{

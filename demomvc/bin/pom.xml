@@ -5,37 +5,29 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.3</version>
+		<version>2.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>edu.usmp</groupId>
-	<artifactId>demoapi</artifactId>
+	<artifactId>demomvc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demoapi</name>
+	<name>demomvc</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-
 		<dependency>
-    		<groupId>org.postgresql</groupId>
-    		<artifactId>postgresql</artifactId>
-    		<version>42.2.19</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
