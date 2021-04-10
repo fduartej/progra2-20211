@@ -1,4 +1,4 @@
-package edu.usmp.demomvc;
+package edu.usmp.demoapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
