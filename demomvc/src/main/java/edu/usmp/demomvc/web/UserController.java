@@ -43,13 +43,15 @@ public class UserController {
            if(userDB.isPresent()){
                 if(objUser.getPassword().equals(userDB.get().getPassword())){
                     model.addAttribute(MESSAGE_ATTRIBUTE, "Ingreso Satisfactorio");
+                    page = "home/index";
                 }else{
                     model.addAttribute(MESSAGE_ATTRIBUTE, "Password no coincide");
+                    page = "user/index";
                 }
            }else{
                 model.addAttribute(MESSAGE_ATTRIBUTE, "Usuario no existe");
+                page = "user/index";
            }
-           page = "home/index";
         }
         return page;
 
