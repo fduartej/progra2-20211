@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import edu.usmp.demomvc.domain.User;
 import edu.usmp.demomvc.repository.UserRepository;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
 
@@ -37,9 +39,9 @@ public class UserController {
             model.addAttribute(MESSAGE_ATTRIBUTE, "Ingrese la informacion mandatoria");
             page = "user/index";
         }else{
-           User userDB = this.userData.getOne(objUser.getUsername());
-           if(userDB != null){
-                if(objUser.getPassword().equals(userDB.getPassword())){
+           Optional<User> userDB = this.userData.findById(objUser.getUsername());
+           if(userDB.isPresent()){
+                if(objUser.getPassword().equals(userDB.get().getPassword())){
                     model.addAttribute(MESSAGE_ATTRIBUTE, "Ingreso Satisfactorio");
                 }else{
                     model.addAttribute(MESSAGE_ATTRIBUTE, "Password no coincide");
