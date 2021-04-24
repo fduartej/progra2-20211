@@ -20,6 +20,7 @@
 		<webjars-jquery-ui.version>1.12.1</webjars-jquery-ui.version>
 		<webjars-jquery.version>3.6.0</webjars-jquery.version>
 		<font-awesome.version>5.15.2</font-awesome.version>
+		 <lombok.version>1.18.20</lombok.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -49,6 +50,12 @@
     		<artifactId>postgresql</artifactId>
     		<version>42.2.19</version>
 		</dependency>
+
+		 <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
 
 		<!-- webjars -->
 		<dependency>

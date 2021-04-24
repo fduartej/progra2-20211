@@ -18,16 +18,18 @@ public class UserController {
 
     private final UserRepository userData;
     private static final String MESSAGE_ATTRIBUTE = "message"; 
+    private static final String USER_INDEX ="user/index";
+    private static final String HOME_INDEX ="home/index"; 
 
     public UserController(UserRepository userData) {
         this.userData = userData;
     }
 
-    @GetMapping("/")
+    @GetMapping("/user/login")
     public String index(Model model) {
         User usuario = new User();
         model.addAttribute("user", usuario);
-        return "user/index";
+        return USER_INDEX;
     }
 
     @PostMapping("/user/login")
@@ -37,20 +39,20 @@ public class UserController {
         String page;
         if(result.hasFieldErrors()) {
             model.addAttribute(MESSAGE_ATTRIBUTE, "Ingrese la informacion mandatoria");
-            page = "user/index";
+            page = USER_INDEX;
         }else{
            Optional<User> userDB = this.userData.findById(objUser.getUsername());
            if(userDB.isPresent()){
                 if(objUser.getPassword().equals(userDB.get().getPassword())){
                     model.addAttribute(MESSAGE_ATTRIBUTE, "Ingreso Satisfactorio");
-                    page = "home/index";
+                    page = HOME_INDEX;
                 }else{
                     model.addAttribute(MESSAGE_ATTRIBUTE, "Password no coincide");
-                    page = "user/index";
+                    page = USER_INDEX;
                 }
            }else{
                 model.addAttribute(MESSAGE_ATTRIBUTE, "Usuario no existe");
-                page = "user/index";
+                page = USER_INDEX;
            }
         }
         return page;
