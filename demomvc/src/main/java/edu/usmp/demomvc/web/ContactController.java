@@ -16,18 +16,31 @@ import edu.usmp.demomvc.domain.Contact;
 
 @Controller
 public class ContactController {
-    
+
     private final ContactRepository contactData;
-    private static final String MESSAGE_ATTRIBUTE = "message"; 
-    private static final String CONTACT_INDEX ="user/index";
-    private static final String HOME_INDEX ="home/index"; 
+    private static final String CONTACT_CREATE = "contact/create";
 
     public ContactController(ContactRepository contactData) {
         this.contactData = contactData;
     }
 
-    @GetMapping("/contact/index")
+    @GetMapping("/contact/create")
     public String index(Model model) {
-        return CONTACT_INDEX;
+        Contact contact = new Contact();
+        model.addAttribute("contact", contact);
+        return CONTACT_CREATE;
     }
+
+    @PostMapping("/contact/create")
+    public String submitCreationForm(Model model,
+        @Valid Contact objContact, BindingResult result) {
+        if (!result.hasErrors()) {
+            model.addAttribute("message", "Se registro satisfactoriamente");
+            this.contactData.save(objContact);
+        }else{
+            model.addAttribute("message", "Por favor envie los datos correctos");
+        }
+        return CONTACT_CREATE;
+    }
+
 }
