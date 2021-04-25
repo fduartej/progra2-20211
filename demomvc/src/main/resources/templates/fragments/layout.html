@@ -8,6 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min-jsf.css}" />
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap-jsf.css}" />
   <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css} " />
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/css/bootstrap-datepicker.css}" />
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css}" />
@@ -16,6 +18,33 @@
 
 </head>
 <body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>      
+    </div>
+  </nav>
+
+<!--
 
     <nav class="navbar navbar-default" role="navigation">
       <div class="container">
@@ -47,17 +76,17 @@
   
           <ul class="nav navbar-nav navbar-right">
   
-            <li th:replace="::menuItem ('/','home','home page','home','Home')">
+            <li th:replace="::menuItem ('/','home','active','home','Home')">
               <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
               <span>Home</span>
             </li>
   
-            <li th:replace="::menuItem ('/user/login','home','Login User','login','Login')">
+            <li th:replace="::menuItem ('/user/login','','Login User','login','Login')">
               <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
               <span>Login</span>
             </li>
 
-            <li th:replace="::menuItem ('/contact/create','contact','Create Contact','contact','Contact')">
+            <li th:replace="::menuItem ('/contact/create','','Create Contact','contact','Contact')">
               <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
               <span>Login</span>
             </li>            
@@ -81,7 +110,7 @@
         </div>
       </div>
     </div>
-  
+  -->
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
