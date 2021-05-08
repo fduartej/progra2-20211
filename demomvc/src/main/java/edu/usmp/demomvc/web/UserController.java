@@ -18,8 +18,8 @@ public class UserController {
 
     private final UserRepository userData;
     private static final String MESSAGE_ATTRIBUTE = "message"; 
-    private static final String USER_INDEX ="user/index";
-    private static final String HOME_INDEX ="home/index"; 
+    private static final String USER_INDEX ="user/login";
+    private static final String HOME_INDEX ="welcome"; 
 
     public UserController(UserRepository userData) {
         this.userData = userData;

@@ -13,104 +13,48 @@
   <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css} " />
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/css/bootstrap-datepicker.css}" />
   <link th:rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css}" />
-  
-  <title>PetClinic :: a Spring Framework demonstration</title>
 
 </head>
 <body>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">App</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>      
-    </div>
-  </nav>
-
-<!--
-
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" th:href="@{/}"><span></span></a>
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-            <span class="sr-only">
-              <os-p>Toggle navigation</os-p>
-            </span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse" id="main-navbar">
-  
-          <ul class="nav navbar-nav navbar-right" th:remove="all">
-  
-            <li th:fragment="menuItem (link,active,title,glyph,text)" class="active"
-              th:class="${active==menu ? 'active' : ''}">
-              <a th:href="@{__${link}__}" th:title="${title}">
-                <span th:class="'glyphicon  glyphicon-'+${glyph}" class="glyphicon glyphicon-home"
-                  aria-hidden="true"></span>
-                <span th:text="${text}">Template</span>
-              </a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-  
+            <li class="nav-item">
+              <a class="nav-link" href="/contact/create">Contact</a>
+            </li>
           </ul>
-  
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
           <ul class="nav navbar-nav navbar-right">
-  
-            <li th:replace="::menuItem ('/','home','active','home','Home')">
-              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-              <span>Home</span>
-            </li>
-  
-            <li th:replace="::menuItem ('/user/login','','Login User','login','Login')">
-              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-              <span>Login</span>
-            </li>
-
-            <li th:replace="::menuItem ('/contact/create','','Create Contact','contact','Contact')">
-              <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-              <span>Login</span>
-            </li>            
-
-          </ul>
+            <li><a href="/cliente/create"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/usuario/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>      
         </div>
-      </div>
-    </nav>
+    </nav> 
+    
     <div class="container-fluid">
       <div class="container xd-container">
   
         <th:block th:include="${template}" />
   
-        <br />
-        <br />
         <div class="container">
           <div class="row">
             <div class="col-12 text-center">
-              Copyright
+              Copyright @ 2021 SoftTech - UTP
           </div>
         </div>
       </div>
     </div>
-  -->
+
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>

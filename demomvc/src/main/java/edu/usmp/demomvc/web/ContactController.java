@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
 
-import java.util.Optional;
-
 import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
 
@@ -35,8 +33,9 @@ public class ContactController {
     public String submitCreationForm(Model model,
         @Valid Contact objContact, BindingResult result) {
         if (!result.hasErrors()) {
-            model.addAttribute("message", "Se registro satisfactoriamente");
             this.contactData.save(objContact);
+            model.addAttribute("contact", objContact);
+            model.addAttribute("message", "Se registro satisfactoriamente");
         }else{
             model.addAttribute("message", "Por favor envie los datos correctos");
         }
