@@ -1,12 +1,16 @@
 package edu.usmp.demomvc.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+
 
 import java.util.Date;
 
@@ -32,4 +36,12 @@ public class Customer {
     private Date birthDate;
     private String gender;
     private String address;
+    private String email;
+    private String maritalStatus;  
+
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;   
+
 }
