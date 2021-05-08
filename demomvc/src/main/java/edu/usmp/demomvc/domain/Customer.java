@@ -33,11 +33,12 @@ public class Customer {
     private String lastName;
     private String documentID;
     @Temporal(TemporalType.DATE)
-    private Date birthDate;
+    private Date birthdate;
     private String gender;
     private String address;
     private String email;
     private String maritalStatus;  
+    private String phone;
 
 
     @OneToOne(fetch = FetchType.LAZY)
