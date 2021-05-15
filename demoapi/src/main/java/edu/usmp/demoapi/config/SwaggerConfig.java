@@ -23,7 +23,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Delivery API")
+                .title("My APP API")
                 .description("This application designed for integration propousal")
                 .build();
     }
