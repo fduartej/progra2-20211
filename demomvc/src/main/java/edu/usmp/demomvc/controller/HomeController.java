@@ -1,4 +1,4 @@
-package edu.usmp.demomvc.web;
+package edu.usmp.demomvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

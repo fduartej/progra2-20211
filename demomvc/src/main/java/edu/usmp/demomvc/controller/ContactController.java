@@ -1,4 +1,4 @@
-package edu.usmp.demomvc.web;
+package edu.usmp.demomvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,9 +8,8 @@ import org.springframework.ui.Model;
 import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
 
+import edu.usmp.demomvc.model.Contact;
 import edu.usmp.demomvc.repository.ContactRepository;
-
-import edu.usmp.demomvc.domain.Contact;
 
 @Controller
 public class ContactController {

@@ -1,4 +1,4 @@
-package edu.usmp.demomvc.domain;
+package edu.usmp.demomvc.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

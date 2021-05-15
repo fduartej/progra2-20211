@@ -1,11 +1,11 @@
-package edu.usmp.demomvc.web;
+package edu.usmp.demomvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
 
-import edu.usmp.demomvc.domain.User;
+import edu.usmp.demomvc.model.User;
 import edu.usmp.demomvc.repository.UserRepository;
 
 import java.util.Optional;
