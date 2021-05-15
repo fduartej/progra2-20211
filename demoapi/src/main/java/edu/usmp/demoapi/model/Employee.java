@@ -1,4 +1,4 @@
-package edu.usmp.demoapi.domain;
+package edu.usmp.demoapi.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
