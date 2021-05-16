@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" 
+    th:replace="~{fragments/layout :: layout (~{::body},'employee')}">
+
+<body>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mt-5 mb-5">
+            <h2>Employee</h2><br/>
+            <table id="example" class="table table-bordered table-responsive" style="width: 100%">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>FirsName</th>
+                  <th>LastName</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="item : ${employees}">
+                  <td>
+                    #
+                  </td>
+                  <td th:text="${item.firstName}"></td>
+                  <td th:text="${item.lastName}"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+
+</body>
+</html>
