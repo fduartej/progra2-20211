@@ -14,11 +14,8 @@ import edu.usmp.demomvc.dto.Employee;
 @Service
 public class GDHService {
 
-    @Value("${appexternal.url}")
-    private String URL_APP;
-
     @Value("${appexternal.endpoint}")
-    private static String URL_ENPOINT;
+    private String URL_ENPOINT;
     
     private RestTemplate restTemplate;
 
@@ -28,7 +25,7 @@ public class GDHService {
     
     public List<Employee> queryEmployeeExternal(){
         ResponseEntity<List<Employee>> response = restTemplate.
-                                    exchange(URL_APP + URL_ENPOINT,HttpMethod.GET,
+                                    exchange(URL_ENPOINT,HttpMethod.GET,
                                     HttpEntity.EMPTY,new ParameterizedTypeReference<List<Employee>>(){});
         return response.getBody();
     }
