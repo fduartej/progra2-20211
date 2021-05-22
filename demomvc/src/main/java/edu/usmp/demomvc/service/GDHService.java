@@ -1,33 +1,27 @@
 package edu.usmp.demomvc.service;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import edu.usmp.demomvc.dto.Employee;
+import edu.usmp.demomvc.integration.api.GDHAPI;
 
 @Service
 public class GDHService {
 
-    @Value("${appexternal.endpoint}")
-    private String URL_ENPOINT;
-    
-    private RestTemplate restTemplate;
+    private GDHAPI gdhAPI;
 
-    public GDHService(RestTemplate restTemplate){
-        this.restTemplate = restTemplate;
+    public GDHService(GDHAPI gdhAPI){
+        this.gdhAPI = gdhAPI;
     }
     
-    public List<Employee> queryEmployeeExternal(){
-        ResponseEntity<List<Employee>> response = restTemplate.
-                                    exchange(URL_ENPOINT,HttpMethod.GET,
-                                    HttpEntity.EMPTY,new ParameterizedTypeReference<List<Employee>>(){});
-        return response.getBody();
+    public List<Employee> getValidEmployees(){
+        List<Employee> employeesValid = gdhAPI.getEmployees().stream().
+        filter(e -> e.getStatus().equals("A")).
+        collect(Collectors.toList());
+        return employeesValid;
     }
 
 }

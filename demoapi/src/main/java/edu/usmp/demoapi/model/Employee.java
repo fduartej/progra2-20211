@@ -16,6 +16,7 @@ public class Employee{
 
     private String firstName;
     private String lastName;
+    private String status;
 
     public Integer getId() {
         return this.id;
@@ -40,6 +41,15 @@ public class Employee{
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 

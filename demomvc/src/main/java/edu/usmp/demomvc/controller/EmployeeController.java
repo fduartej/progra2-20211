@@ -23,7 +23,7 @@ public class EmployeeController {
 
     @GetMapping(EMPLOYEE_INDEX)
     public String index(Model model) {
-        List<Employee> employess = gdhService.queryEmployeeExternal();
+        List<Employee> employess = gdhService.getValidEmployees();
         model.addAttribute("employees", employess);
         return EMPLOYEE_INDEX;
     }
