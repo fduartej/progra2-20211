@@ -15,8 +15,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class GDHAPI {
     
-    @Value("${appexternal.endpoint}")
+    @Value("${appexternal.endpoint.get.employees}")
     private String URL_GET_EMPLOYEES;
+
+    @Value("${appexternal.endpoint.post.employees}")
+    private String URL_POST_EMPLOYEES;
 
     private RestTemplate restTemplate;
 
@@ -31,5 +34,15 @@ public class GDHAPI {
                                     HttpEntity.EMPTY,
                                     new ParameterizedTypeReference<List<Employee>>(){});
         return response.getBody();
+    }
+
+    public void postEmployees(Employee e){
+        HttpEntity<Employee> bodyRequest = new  HttpEntity<Employee>(e);
+        ResponseEntity<String> response = 
+            restTemplate.exchange(URL_POST_EMPLOYEES,
+                    HttpMethod.POST,
+                    bodyRequest,
+                    new ParameterizedTypeReference<String>(){}
+            );
     }
 }

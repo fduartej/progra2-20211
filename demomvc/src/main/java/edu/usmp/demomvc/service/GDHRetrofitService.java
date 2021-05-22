@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Service
 public class GDHRetrofitService {
 
-    @Value("${appexternal.endpoint}")
+    @Value("${appexternal.endpoint.get.employees}")
     private String URL_ENPOINT;
 
     @Value("${appexternal.url}")

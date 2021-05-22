@@ -24,4 +24,10 @@ public class GDHService {
         return employeesValid;
     }
 
+    public void addValidEmployee(Employee e){
+        if(!e.getFirstName().equals("jose")){
+            gdhAPI.postEmployees(e);
+        }
+    }
+
 }
