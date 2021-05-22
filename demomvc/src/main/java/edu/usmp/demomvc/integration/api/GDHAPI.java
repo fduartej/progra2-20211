@@ -10,7 +10,9 @@ import org.springframework.web.client.RestTemplate;
 import edu.usmp.demomvc.dto.Employee;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
 
+@Service
 public class GDHAPI {
     
     @Value("${appexternal.endpoint}")
