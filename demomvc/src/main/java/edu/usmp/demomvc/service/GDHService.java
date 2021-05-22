@@ -3,6 +3,7 @@ package edu.usmp.demomvc.service;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import edu.usmp.demomvc.dto.Employee;
@@ -30,4 +31,13 @@ public class GDHService {
         }
     }
 
+    public void realizarPago(Map datosPago){
+
+        //TODO call api post pago
+
+        //TODO: call api post sunat
+
+        //TODO: Call api post delivery
+
+    }
 }
