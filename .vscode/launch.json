@@ -22,12 +22,12 @@
         },
         {
             "type": "java",
-            "name": "Spring Boot-DemomvcApplication<demomvc (2)>",
+            "name": "Spring Boot-DemomvcApplication<demodashboard>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
-            "mainClass": "edu.usmp.demomvc.DemomvcApplication",
-            "projectName": "demomvc (2)",
+            "mainClass": "edu.usmp.demodashboard.DemodashboardApplication",
+            "projectName": "demodashboard",
             "args": ""
         }
     ]
