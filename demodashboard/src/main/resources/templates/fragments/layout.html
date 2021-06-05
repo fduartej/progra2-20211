@@ -37,13 +37,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/dashboard/payments">
+              <a class="nav-link" href="#" onclick="graficoPagos()">
                 <span data-feather="file"></span>
                 Payments
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="#" onclick="graficoPrincipal()">
                 <span data-feather="shopping-cart"></span>
                 Products
               </a>
@@ -86,9 +86,6 @@
         <div class="container-fluid">
           <div class="container xd-container">
       
-            
-            <th:block th:include="${template}" />
-            
             <div id="chart_div"></div>
            
       
@@ -113,7 +110,8 @@
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
   <script th:src="@{/webjars/bootstrap-datepicker/js/bootstrap-datepicker.min.js}"></script>
   <script th:src="@{/webjars/jquery.inputmask/jquery.inputmask.min.js}"></script>    
-   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
   <!-- Icons -->
   <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
@@ -121,38 +119,67 @@
         feather.replace()
   </script>
 
-  <!-- Graphs 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-  <script>
-    var ctx = document.getElementById("myChart");
-    var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        datasets: [{
-          data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-          lineTension: 0,
-          backgroundColor: 'transparent',
-          borderColor: '#007bff',
-          borderWidth: 4,
-          pointBackgroundColor: '#007bff'
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: false
-            }
-          }]
-        },
-        legend: {
-          display: false,
-        }
-      }
-    });
-  </script>
-  -->
+  <script type="text/javascript">
+
+  // Load the Visualization API and the corechart package.
+  google.charts.load('current', {'packages':['corechart']});
+
+  google.charts.setOnLoadCallback(graficoPrincipal);
+
+  function graficoPrincipal() {
+      $.ajax({
+        url: "http://localhost:8080/api/dashboard/tarjetas",
+        dataType: "json",
+      }).done(function (jsonData) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'tipoTarjeta');
+        data.addColumn('number', 'montoTotal');
+
+        jsonData.forEach(function (row) {
+          data.addRow([
+            row.tipoTarjeta,
+            row.montoTotal
+          ]);
+        });
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, {
+          width: 400,
+          height: 240
+        });
+      }).fail(function (jq, text, err) {
+        console.log(text + ' - ' + err);
+      });
+  }
+
+  function graficoPagos() {
+      $.ajax({
+        url: "http://localhost:8080/api/dashboard/tarjetas",
+        dataType: "json",
+      }).done(function (jsonData) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'tipoTarjeta');
+        data.addColumn('number', 'montoTotal');
+
+        jsonData.forEach(function (row) {
+          data.addRow([
+            row.tipoTarjeta,
+            row.montoTotal
+          ]);
+        });
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, {
+          width: 400,
+          height: 240
+        });
+      }).fail(function (jq, text, err) {
+        console.log(text + ' - ' + err);
+      });
+  }
+</script>
+
+ 
 </body>
   
 </html>

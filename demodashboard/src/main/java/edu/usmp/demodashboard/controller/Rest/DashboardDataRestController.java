@@ -11,10 +11,10 @@ import edu.usmp.demodashboard.repository.*;
 
 @RestController
 @RequestMapping(value = "api/dashboard", produces = "application/json")
-public class DataRestController {
+public class DashboardDataRestController {
     private final PaymentRepository paymentData;
 
-    public DataRestController(PaymentRepository paymentData){
+    public DashboardDataRestController(PaymentRepository paymentData){
         this.paymentData = paymentData;
     } 
 
