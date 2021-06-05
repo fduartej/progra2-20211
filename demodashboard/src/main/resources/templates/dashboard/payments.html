@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" >
+
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+          $.ajax({
+            url: "http://localhost:8080/api/dashboard/tarjetas",
+            dataType: "json",
+          }).done(function (jsonData) {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'tipoTarjeta');
+            data.addColumn('number', 'montoTotal');
+
+            jsonData.forEach(function (row) {
+              data.addRow([
+                row.tipoTarjeta,
+                row.montoTotal
+              ]);
+            });
+
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            chart.draw(data, {
+              width: 400,
+              height: 240
+            });
+          }).fail(function (jq, text, err) {
+            console.log(text + ' - ' + err);
+          });
+      }
+    </script>
+
+</head>
+
+
+<body>
+  <div id="chart_div"></div>
+</body>
+
+</html>

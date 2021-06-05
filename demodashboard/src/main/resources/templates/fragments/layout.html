@@ -37,9 +37,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/dashboard/payments">
                 <span data-feather="file"></span>
-                Orders
+                Payments
               </a>
             </li>
             <li class="nav-item">
@@ -82,12 +82,15 @@
           </div>
         </div>
 
-        <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
 
         <div class="container-fluid">
           <div class="container xd-container">
       
+            
             <th:block th:include="${template}" />
+            
+            <div id="chart_div"></div>
+           
       
             <div class="container">
               <div class="row">
@@ -110,6 +113,7 @@
   <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
   <script th:src="@{/webjars/bootstrap-datepicker/js/bootstrap-datepicker.min.js}"></script>
   <script th:src="@{/webjars/jquery.inputmask/jquery.inputmask.min.js}"></script>    
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
   <!-- Icons -->
   <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
@@ -117,7 +121,7 @@
         feather.replace()
   </script>
 
-  <!-- Graphs -->
+  <!-- Graphs 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
   <script>
     var ctx = document.getElementById("myChart");
@@ -148,6 +152,7 @@
       }
     });
   </script>
+  -->
 </body>
   
 </html>
