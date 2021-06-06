@@ -49,7 +49,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="#" onclick="graficoEntregas()">
                 <span data-feather="users"></span>
                 Customers
               </a>
@@ -92,7 +92,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-12 text-center">
-                  Copyright @ 2021 SoftTech - UTP
+                  Copyright @ 2021 SoftTech
               </div>
             </div>
           </div>
@@ -119,65 +119,7 @@
         feather.replace()
   </script>
 
-  <script type="text/javascript">
-
-  // Load the Visualization API and the corechart package.
-  google.charts.load('current', {'packages':['corechart']});
-
-  google.charts.setOnLoadCallback(graficoPrincipal);
-
-  function graficoPrincipal() {
-      $.ajax({
-        url: "http://localhost:8080/api/dashboard/tarjetas",
-        dataType: "json",
-      }).done(function (jsonData) {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'tipoTarjeta');
-        data.addColumn('number', 'montoTotal');
-
-        jsonData.forEach(function (row) {
-          data.addRow([
-            row.tipoTarjeta,
-            row.montoTotal
-          ]);
-        });
-
-        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-        chart.draw(data, {
-          width: 400,
-          height: 240
-        });
-      }).fail(function (jq, text, err) {
-        console.log(text + ' - ' + err);
-      });
-  }
-
-  function graficoPagos() {
-      $.ajax({
-        url: "http://localhost:8080/api/dashboard/tarjetas",
-        dataType: "json",
-      }).done(function (jsonData) {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'tipoTarjeta');
-        data.addColumn('number', 'montoTotal');
-
-        jsonData.forEach(function (row) {
-          data.addRow([
-            row.tipoTarjeta,
-            row.montoTotal
-          ]);
-        });
-
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-        chart.draw(data, {
-          width: 400,
-          height: 240
-        });
-      }).fail(function (jq, text, err) {
-        console.log(text + ' - ' + err);
-      });
-  }
-</script>
+  <script th:src="@{/resources/js/dashboard.js}"></script>  
 
  
 </body>
